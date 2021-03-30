@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
+
+* {
+    font-family: 'Nunito Sans', sans-serif !important;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+table {
+    width: 80%;
+    margin: auto;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+table tr:nth-child(1) td {
+    font-weight: bold;
+}
+
+canvas {
+    display: block;
+    margin: auto;
+    width: 600px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-6 {
+    width: 50%;
+}

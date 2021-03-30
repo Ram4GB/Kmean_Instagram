@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <input id="number" />
+    <div class="container">
+        <div>
+            <h2>Mô tả dữ liệu ban đầu</h2>
+            <div id="moTaDuLieu" width="400" height="400"></div>
+        </div>
+        <div>
+            <h2>Mô tả thuộc tính của từng class</h2>
+            <div id="section2"></div>
+        </div>
+        <div>
+            <canvas width="700" height="500" id="originalScatter"></canvas>
+        </div>
+        <div id="section4">
+        </div>
+        <div style="display: flex;">
+            <div style="display: flex; flex-wrap: wrap;" id="section3">
+            </div>
+        </div>
+        <canvas id="silhouette"></canvas>
+        <div>
+            <h2>Distortion</h2>
+            <canvas id="distortions" width="500" height="400"></canvas>
+        </div>
+        <div>
+            <h2>Inertia</h2>
+            <canvas id="inertia" width="500" height="400"></canvas>
+        </div>
+        <div>
+            <h2>Kết quả với k = 7</h2>
+            <canvas id="kmean" width="700" height="500"></canvas>
+        </div>
+    </div>
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.6.1/randomColor.min.js" integrity="sha512-vPeZ7JCboHcfpqSx5ZD+/jpEhS4JpXxfz9orSvAPPj0EKUVShU2tgy7XkU+oujBJKnWmu4hU7r9MMQNWPfXsYw==" crossorigin="anonymous"></script>
+    <script src="./sketch.js"></script>
+</body>
+</html>
