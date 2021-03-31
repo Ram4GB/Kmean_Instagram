@@ -131,28 +131,37 @@ function mainProcess(k) {
     }), { flag: 'w' })
 }
 
-// let r = mainProcess(8)
-// console.log('Done')
+let r = mainProcess(5)
+console.log('Done')
 
 function demoSmallData() {
-    let x = [3, 1, 1, 2, 1, 6, 6, 6, 5, 6, 7, 8, 9, 8, 9, 9, 8]
-    let y = [5, 4, 5, 6, 5, 8, 6, 7, 6, 7, 1, 2, 1, 2, 3, 2, 3]
+    let arrayPoint = [
+        { x: 3, y: 5 },
+        { x: 1, y: 4 },
+        { x: 1, y: 5 },
+        { x: 2, y: 6 },
+        { x: 8, y: 8 },
+        { x: 7, y: 6 },
+        { x: 6, y: 7 },
+        { x: 5, y: 6 }
+    ]
 
-    let arrayPoint = []
-    for(let i = 0 ; i < 17; i++) {
-        arrayPoint.push({x: x[i], y: y[i]})
-    }
-
+    // let xC = 6.5
+    // let yC = 6.75
+    // arrayPoint.forEach(item=>{
+    //     console.log(item)
+    //     console.log(Math.sqrt(Math.pow(item.x - xC, 2) + Math.pow(item.y - yC, 2)))
+    // })
 
     console.log("Tập dữ liệu ban đầu")
-    console.table(arrayPoint)
+    console.log(arrayPoint)
 
     let result = kmean(arrayPoint, 2, [])
     
     console.log(result.arrayCentroid)
     console.log('inertia', result.inertia)
     console.log("Tập dữ liệu sau khi dùng kmean")
-    console.table(result.groupArray)
+    console.log(result.groupArray)
 
     let sum = 0
     for(let i = 0 ; i < result.groupArray[0].length; i++) {
@@ -171,4 +180,12 @@ function demoSmallData() {
     console.log(result.distortion)
 }
 
-demoSmallData()
+// demoSmallData()
+
+// •	Bước 1: Chỉ định ra số lượng K clsuters
+// •	Bước 2: Khởi tạo các điểm centroid bằng việc trộn tất cả dataset và lấy ngẫu nhiên ra K điểm data points làm centroid.
+// •	Bước 3: Tính khoảng cách giữa centroid và datapoint. Sau đó, gán data point với cluster gần nhất (centroid).
+// •	Bước 4: Tính toán lại tất cả centroid bằng việc tính trung bình cộng của tất cả data point mà những điểm thuộc mỗi cluster.
+// •	Bước 5: Lặp cho đến khi không có sự thay đổi giữa các centroid (những điểm data point được gán tới clusters không bị thay đổi)
+// •	Bước 6: Nếu phần tử của bất kì clusters nào đó không bị đổi thì dừng thuật toán, nếu không thì tiếp tục bước 3.
+// •	Bước 7: Tính trung bình của bình phương khoảng cách giữa datapoints và centroid – Distortion (Có nghĩa là trước hết với một cụm, tính tổng bình phương khoảng cách từ centroid với các điểm thuộc về centroid đó, làm tương tự với những cluster khác, cuối cùng thì chúng ta sẽ chia cho tổng số lượng tất cả datapoint. Một cluster sẽ có 1 centroid và nhiều datapoint của cluster đó, chọn 2C1 để tính khoảng cách thì sẽ có n trường hợp. Ví dụ: cluster1 (n1 trường hợp), cluster 2 (n2 trường hợp), cluster 3 (n3 trường hợp) thì cuối cùng cũng bằng với tổng số lượng datapoints).

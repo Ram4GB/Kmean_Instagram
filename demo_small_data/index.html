@@ -5,8 +5,135 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
 </head>
 <body>
     
+    <canvas style="display: block;margin: auto;" width="800px" height="500px" id="canvasMain"></canvas>
+    <button type="button" id="next">Next</button>
+    <button type="button" id="prev">Pre</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+    <script>
+        // kết quả bài toán trên
+        let steps = [
+            {
+                datasets: [
+                    {
+                        data: [ { x: 3, y: 5 },
+                                { x: 1, y: 4 },
+                                { x: 1, y: 5 },
+                                { x: 2, y: 6 },
+                                { x: 8, y: 8 },
+                                { x: 7, y: 6 },
+                                { x: 6, y: 7 },
+                                { x: 5, y: 6 } ],
+                        backgroundColor: "blue",
+                        label: "points",
+                    }
+                ]
+            },
+            {
+                datasets: [
+                    {
+                        data: [ { x: 3, y: 5 },
+                                { x: 1, y: 4 },
+                                { x: 1, y: 5 },
+                                { x: 2, y: 6 },
+                                { x: 8, y: 8 },
+                                { x: 7, y: 6 },
+                                { x: 6, y: 7 },
+                                { x: 5, y: 6 } ],
+                        backgroundColor: "blue",
+                        label: "Cluster_1",
+                        order: 2
+                    },
+                    {
+                        data: [ { x: 6, y: 7 }, { x: 7, y: 6 } ],
+                        backgroundColor: "red",
+                        label: "Centroids",
+                        order: 1
+                    }
+                ]
+            },
+            {
+                datasets: [
+                    {
+                        data: [ { x: 8, y: 8 }, { x: 7, y: 6 }, { x: 5, y: 6 } ],
+                        backgroundColor: "blue",
+                        label: "Cluster_1"
+                    },
+                    {
+                        data: [ { x: 3, y: 5 }, { x: 1, y: 4 }, { x: 1, y: 5 }, { x: 2, y: 6 } , { x: 6, y: 7 }],
+                        backgroundColor: "orange",
+                        label: "Cluster_2"
+                    },
+                    {
+                        data: [ { x: 6.5, y: 6.75 }, { x: 1.75, y: 5 } ],
+                        backgroundColor: "red",
+                        label: "Centroids"
+                    }
+                ]
+            },
+            {
+                datasets: [
+                    {
+                        data: [ { x: 8, y: 8 }, { x: 7, y: 6 }, { x: 6, y: 7 }, { x: 5, y: 6 } ],
+                        backgroundColor: "blue",
+                        label: "Cluster_1"
+                    },
+                    {
+                        data: [ { x: 3, y: 5 }, { x: 1, y: 4 }, { x: 1, y: 5 }, { x: 2, y: 6 } ],
+                        backgroundColor: "orange",
+                        label: "Cluster_2"
+                    },
+                    {
+                        data: [ { x: 6.5, y: 6.75 }, { x: 1.75, y: 5 } ],
+                        backgroundColor: "red",
+                        label: "Centroids"
+                    }
+                ]
+            }
+        ]
+        let currentStep = 0
+        let data = [
+                    { x: 3, y: 5 },
+                    { x: 1, y: 4 },
+                    { x: 1, y: 5 },
+                    { x: 2, y: 6 },
+                    { x: 8, y: 8 },
+                    { x: 7, y: 6 },
+                    { x: 6, y: 7 },
+                    { x: 5, y: 6 }
+        ]
+        let canvas = new Chart(document.getElementById("canvasMain"), {
+            type: 'scatter',
+            data: {
+                datasets: steps[0].datasets,
+            },
+            options: {
+                responsive: false
+            }
+        })
+
+        document.getElementById("next").addEventListener('click', function() {
+            currentStep = currentStep + 1
+            if(currentStep > 4) {
+                currentStep = 3
+            }
+            console.log(currentStep)
+            canvas.data.datasets = steps[currentStep].datasets
+            canvas.update()
+        })
+
+        document.getElementById("prev").addEventListener('click', function() {
+            currentStep = currentStep - 1
+            if(currentStep < 0) {
+                currentStep = 0
+            }
+            console.log(currentStep)
+            canvas.data.datasets = steps[currentStep].datasets
+            canvas.update()
+        })
+    </script>
 </body>
 </html>
