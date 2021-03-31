@@ -36,6 +36,7 @@ function cleanUpData(data) {
 	}
 }
 
+// euclidean
 function distance(x, y, excludeKeys) {
 	// (xv1 - yv1)^2 + (xv2 - yv2)^2 + (xv3 - yv3)^2 = dij^2
 	let sum = 0;
@@ -49,8 +50,9 @@ function distance(x, y, excludeKeys) {
 	return Math.sqrt(sum)
 }
 
+// mahattan
 // function distance(x, y, excludeKeys) {
-//     // (xv1 - yv1)^2 + (xv2 - yv2)^2 + (xv3 - yv3)^2 = dij^2
+//     // (xv1 - yv1) + (xv2 - yv2) + (xv3 - yv3) = dij
 //     let sum = 0;
 //     Object.keys(x).forEach(key => {
 //         if(excludeKeys.indexOf(key) === -1) {
