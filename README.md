@@ -1,6 +1,6 @@
 [Link Source](https://github.com/Ram4GB/Kmean_Instagram)
 
-# Thuật toán Kmean vào ứng dụng phân cụm người dùng trên Instagram
+# Thuật toán Kmean vào ứng dụng phân cụm người dùng trên Instagram bằng Javascript
 
 ## Dữ liệu
 
